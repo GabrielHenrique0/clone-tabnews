@@ -11,6 +11,7 @@ function Home() {
                 placeholder="Digite aqui..." 
                 value={nome} 
                 onChange={(e) => setNome(e.target.value)} 
+                style={{ padding: "10px", fontSize: "16px", marginBottom: "10px" }}
             />
             <strong>{nome}</strong>
         </div>
