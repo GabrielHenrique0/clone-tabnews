@@ -40,8 +40,5 @@ function getSSLValues() {
     };
   }
 
-  console.log("NODE_ENV:", process.env.NODE_ENV);
-  const ssl = process.env.NODE_ENV === "development" ? false : true;
-  console.log("SSL setting:", ssl);
-  return ssl;
+  return process.env.NODE_ENV === "production" ? true : false;
 }
