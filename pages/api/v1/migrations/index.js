@@ -34,13 +34,13 @@ export default async function migrations(request, response) {
     }
 
     return response.status(405).json({
-      message: `Método ${request.method} não suportado para /migrations.`,
+      message: `Method ${request.method} not supported for /migrations.`,
     });
   } catch (error) {
-    console.error("Erro ao executar migration: ", error);
+    console.error("Error running migration: ", error);
     return response
       .status(500)
-      .json({ message: "Erro interno no servidor", error: error.message });
+      .json({ message: "Internal server error", error: error.message });
   } finally {
     await dbClient.end();
   }
