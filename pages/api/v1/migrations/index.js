@@ -1,8 +1,16 @@
 import migrationRunner from "node-pg-migrate";
 import { join } from "node:path";
 import database from "infra/database.js";
+import { error } from "node:console";
 
 export default async function migrations(request, response) {
+  // const allowedMethods = ["GET", "POST"];
+  // if (!allowedMethods.includes(request.method)) {
+  //   return response.status(405).json({
+  //     error: `Method "${request.method}" not allowed`,
+  //   });
+  // }
+
   const dbClient = await database.getNewClient();
 
   const defaultMigrationOptions = {
@@ -38,6 +46,7 @@ export default async function migrations(request, response) {
     });
   } catch (error) {
     console.error("Error running migration: ", error);
+    // throw error;
     return response
       .status(500)
       .json({ message: "Internal server error", error: error.message });
