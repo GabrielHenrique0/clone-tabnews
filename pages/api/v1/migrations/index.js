@@ -42,7 +42,7 @@ export default async function migrations(request, response) {
     }
 
     return response.status(405).json({
-      message: `Method ${request.method} not supported for /migrations.`,
+      error: `Method ${request.method} not supported for /migrations.`,
     });
   } catch (error) {
     console.error("Error running migration: ", error);
