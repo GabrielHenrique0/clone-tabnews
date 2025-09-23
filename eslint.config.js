@@ -17,7 +17,7 @@ module.exports = [
       "no-debugger": "error",
       "prefer-const": "error",
       "no-var": "error",
-      "no-undef": "off", // desativa os erros de variáveis indefinidas
+      "no-undef": "off",
     },
   },
 ];
